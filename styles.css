@@ -261,7 +261,7 @@
     color: var(--secondary-text-color);
   }
   
-  /* Bunny Clicker Styles */
+/* Bunny Clicker Game */
 #bunny-clicker {
     position: relative;
     text-align: center;
@@ -280,15 +280,18 @@
   
   .bunny {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-image: url('https://path_to_your_bunny_image.png'); /* Replace with your bunny image path */
-    background-size: contain;
-    background-repeat: no-repeat;
+    font-size: 15px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.2s ease;
   }
   
   .bunny:hover {
-    transform: scale(1.2);
+    transform: scale(1.5);
+  }
+  
+  .bunny-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
   }
