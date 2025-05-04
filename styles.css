@@ -261,3 +261,101 @@
     color: var(--secondary-text-color);
   }
   
+/* Bunny Clicker Game */
+#bunny-clicker {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+  }
+  
+  #bunny-clicker h3 {
+    font-size: 24px;
+    color: #ff9a00;
+  }
+  
+  #bunny-clicker p {
+    font-size: 20px;
+  }
+  
+  .bunny {
+    position: absolute;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+  }
+  
+  .bunny:hover {
+    transform: scale(1.5);
+  }
+  
+  .bunny-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .game-over {
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.3rem;
+    background: #fffcee;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #0003;
+    text-align: center;
+    z-index: 9999;
+  }
+  
+  #restart-btn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #8fbc8f;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  #restart-btn:hover {
+    background: #6fa66f;
+  }
+  
+  .turtle {
+    display: inline-block;
+    font-size: 2.5rem;
+    animation: turtle-wiggle 2s infinite ease-in-out;
+    margin-top: 10px;
+  }
+
+  .turtle-quote {
+    font-size: 0.9rem;
+    color: #555;
+    font-style: italic;
+  }
+  
+  @keyframes turtle-wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  .jj-footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--secondary-text-color);
+    font-size: 14px;
+  }
+  
+  .jj-footer a {
+    color: var(--text-decoration-color);
+    text-decoration: underline;
+  }
