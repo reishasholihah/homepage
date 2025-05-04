@@ -261,3 +261,34 @@
     color: var(--secondary-text-color);
   }
   
+  /* Bunny Clicker Styles */
+#bunny-clicker {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+  }
+  
+  #bunny-clicker h3 {
+    font-size: 24px;
+    color: #ff9a00;
+  }
+  
+  #bunny-clicker p {
+    font-size: 20px;
+  }
+  
+  .bunny {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://path_to_your_bunny_image.png'); /* Replace with your bunny image path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .bunny:hover {
+    transform: scale(1.2);
+  }
