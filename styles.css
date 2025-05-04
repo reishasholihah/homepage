@@ -295,3 +295,15 @@
     width: 100%;
     overflow: hidden;
   }
+
+  .jj-footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--secondary-text-color);
+    font-size: 14px;
+  }
+  
+  .jj-footer a {
+    color: var(--text-decoration-color);
+    text-decoration: underline;
+  }
