@@ -35,7 +35,8 @@
                   </a>
       
                   <!-- LinkedIn -->
-                  <a href="https://linkedin.com/in/johnsmith" rel="author" class="contact-info__item">
+                  <a href="https://linkedin.com/in/reisha-sholihah/" rel="author" class="contact-info__item">
+
                     <div class="contact-info__item-icon-wrapper">
                       <svg class="contact-info__item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480
@@ -48,7 +49,9 @@
                         </path>
                       </svg>
                     </div>
-                    <span>linkedin.com/in/reishasholihah</span>
+
+                    <span>linkedin.com/in/reisha-sholihah/</span>
+
                   </a>
                 </div>
       
@@ -57,7 +60,7 @@
                   <img class="contact-info__avatar" src="assets/avatar.png" alt="Avatar" />
                 </div>
       
-                <!-- Right Contact Block (you can duplicate from the left if needed) -->
+                <!-- Right Contact Block -->
                 <div class="contact-info__block">
                   <!-- Email -->
                   <a href="mailto:haryantoreisha@email.com" class="contact-info__item">
@@ -102,6 +105,129 @@
             </div>
           </div>
         </div>
+
+        <div class="container">
+            <div class="resume__block">
+            <div class="skills">
+                <h3 class="skills__header">Skills</h3>
+                <p class="skills__text">Problem Solving, Continuous Learning, Team Collaboration</p>
+            </div>
+            </div>
+        </div>
+        
+        <!-- Experience and Additional Info Block -->
+        <div class="container">
+            <div class="resume__block">
+            <div class="main-info fh">
+                
+                <!-- Experience -->
+                <div class="experiences">
+                <h3 class="experiences__header">Experience</h3>
+                <div class="experiences__company">
+                    <div class="experiences__company-header">
+                    <span class="experiences__company-header-durability">2024 – Present</span>
+                    <h3 class="experiences__company-header-name">Kalbis University</h3>
+                    </div>
+        
+                    <div class="experiences__company-project">
+                    <span class="experiences__company-project-role">Intern</span>
+                    <h3 class="experiences__company-project-name">Brand Communication</h3>
+                    <ul class="experiences__company-project-responsibilities">
+                        <li>Assisted in content planning, video shootin, and served as a talent for campus promotions.</li>
+                        <li>Contributed to branding strategies to increase campus visibility.</li>
+                    </ul>
+                    </div>
+                </div>
+                </div>
+        
+                <!-- Additional Info -->
+                <div class="additional-info fv">
+                <!-- Education -->
+                <div class="additional-info__education">
+                    <h3 class="additional-info__education-header">Education</h3>
+                    <div class="additional-info__education-university">
+                    <span class="additional-info__education-university-durability">2024 – Present</span>
+                    <h3 class="additional-info__education-university-speciality">Informatics</h3>
+                    <p class="additional-info__education-university-name">Kalbis University</p>
+                    </div>
+                </div>
+        
+                <!-- Languages -->
+                <div class="additional-info__languages">
+                    <h3 class="additional-info__languages-header">Languages</h3>
+                    <p class="additional-info__languages-item">English — Advanced</p>
+                    <p class="additional-info__languages-item">Indonesian — Native</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Bunny Clicker Game -->
+        <div id="bunny-clicker">
+            <h3>Click the Bunnies!</h3>
+            <p>Score: <span id="score">0</span></p>
+            <div id="bunny-container"></div>
+        </div>
+
+        <script>
+            let score = 0;
+          
+            // Function to generate bunny emojis at random positions
+            function generateBunny() {
+              let bunnyContainer = document.getElementById('bunny-container');
+              
+              let bunny = document.createElement('div');
+              bunny.classList.add('bunny');
+              bunny.textContent = '🐇';  // Bunny emoji
+          
+              // Randomize bunny position on screen
+              bunny.style.top = `${Math.random() * 90 + 5}%`;  // Random vertical position
+              bunny.style.left = `${Math.random() * 90 + 5}%`; // Random horizontal position
+          
+              // Randomize bunny speed and size
+              bunny.style.animation = 'pop 1s ease-out forwards';
+          
+              // Event listener for click event on bunny
+              bunny.addEventListener('click', () => {
+                score++;
+                document.getElementById('score').textContent = score;
+          
+                // When a bunny is clicked, we generate more bunnies
+                generateBunny();  // Create a new bunny
+                bunny.style.display = 'none';  // Hide the clicked bunny
+              });
+          
+              bunnyContainer.appendChild(bunny);
+            }
+          
+            // Animation for bunnies popping
+            const styleSheet = document.styleSheets[0];
+            styleSheet.insertRule(`
+              @keyframes pop {
+                0% {
+                  opacity: 0;
+                  transform: scale(0.5);
+                }
+                100% {
+                  opacity: 1;
+                  transform: scale(1);
+                }
+              }
+            `, styleSheet.cssRules.length);
+          
+            // Generate initial bunnies
+            window.onload = function() {
+              // Generate initial bunnies to pop up
+              for (let i = 0; i < 5; i++) {
+                generateBunny();
+              }
+          
+              // Periodically generate bunnies every 1 second
+              setInterval(generateBunny, 1000);
+            };
+          </script>
+
       </main>
   </body>
 </html>
