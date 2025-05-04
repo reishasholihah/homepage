@@ -175,52 +175,82 @@
         </a>
       </footer>
       
-    <script>
+      <script>
         let score = 0;
+        let bunnyCount = 0;
+        const maxBunnies = 30;
+        let gameOver = false;
+        let gameInterval;
       
         function generateBunny() {
-          let bunnyContainer = document.getElementById('bunny-container');
-          
-          let bunny = document.createElement('div');
+          if (gameOver || bunnyCount >= maxBunnies) return;
+      
+          const bunnyContainer = document.getElementById('bunny-container');
+          const bunny = document.createElement('div');
           bunny.classList.add('bunny');
           bunny.textContent = '🐇';
       
           bunny.style.top = `${Math.random() * 90 + 5}%`;
           bunny.style.left = `${Math.random() * 90 + 5}%`;
-      
           bunny.style.animation = 'pop 1s ease-out forwards';
       
           bunny.addEventListener('click', () => {
+            if (gameOver) return;
             score++;
             document.getElementById('score').textContent = score;
-      
             generateBunny();
-            bunny.style.display = 'none';
+            bunny.remove();
           });
       
           bunnyContainer.appendChild(bunny);
+          bunnyCount++;
+      
+          if (bunnyCount >= maxBunnies) endGame();
+        }
+      
+        function endGame() {
+            gameOver = true;
+            clearInterval(gameInterval);
+
+            const message = document.createElement('div');
+            message.classList.add('game-over');
+            message.innerHTML = `
+                Game Over!<br>
+                <span class="turtle-quote">"Slow and steady... ends your bunny spree."</span><br>
+                <div class="turtle">🐢</div>
+                <button id="restart-btn">Restart</button>
+            `;
+            document.body.appendChild(message);
+
+            document.getElementById('restart-btn').addEventListener('click', restartGame);
+            }
+      
+        function restartGame() {
+          score = 0;
+          bunnyCount = 0;
+          gameOver = false;
+          document.getElementById('score').textContent = score;
+          document.getElementById('bunny-container').innerHTML = '';
+          document.querySelector('.game-over')?.remove();
+          for (let i = 0; i < 5; i++) {
+            generateBunny();
+          }
+          gameInterval = setInterval(generateBunny, 1000);
         }
       
         const styleSheet = document.styleSheets[0];
         styleSheet.insertRule(`
           @keyframes pop {
-            0% {
-              opacity: 0;
-              transform: scale(0.5);
-            }
-            100% {
-              opacity: 1;
-              transform: scale(1);
-            }
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
           }
         `, styleSheet.cssRules.length);
       
-        window.onload = function() {
+        window.onload = function () {
           for (let i = 0; i < 5; i++) {
             generateBunny();
           }
-      
-          setInterval(generateBunny, 1000);
+          gameInterval = setInterval(generateBunny, 1000);
         };
       </script>
   </body>
